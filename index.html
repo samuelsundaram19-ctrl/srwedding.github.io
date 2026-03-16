@@ -22,8 +22,8 @@
 
         body {
             font-family: Poppins;
-            background: #faf7f4;
-            color: #333;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover fixed no-repeat;
+            color: #fff;
         }
 
         header {
@@ -72,7 +72,6 @@
 
         .hero {
             height: 100vh;
-            background: url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -95,7 +94,7 @@
             font-size: 30px;
         }
 
-        /* COUPLE */
+        /* COUPLE (Section 2 - Even) */
 
         .couple {
             display: flex;
@@ -103,6 +102,9 @@
             gap: 80px;
             padding: 120px 20px;
             text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            color: white;
         }
 
         .person {
@@ -119,12 +121,14 @@
             font-family: Playfair Display;
         }
 
-        /* STORY */
+        /* STORY (Section 3 - Odd) */
 
         .story {
-            background: #f3ece7;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
             padding: 120px 20%;
             text-align: center;
+            color: white;
         }
 
         .story h2 {
@@ -132,11 +136,14 @@
             margin-bottom: 20px;
         }
 
-        /* COUNTDOWN */
+        /* COUNTDOWN (Section 4 - Even) */
 
         .countdown {
             text-align: center;
             padding: 120px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            color: white;
         }
 
         #timer {
@@ -144,11 +151,14 @@
             margin-top: 20px;
         }
 
-        /* GALLERY */
+        /* GALLERY (Section 5 - Odd) */
 
         .gallery {
             padding: 120px 10%;
             text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            color: white;
         }
 
         .grid {
@@ -168,32 +178,50 @@
             transform: scale(1.05);
         }
 
-        /* RSVP */
+        /* EVENTS (Section 6 - Even) */
 
-        .rsvp {
-            background: #f3ece7;
-            padding: 120px;
+        .events {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 120px 10%;
             text-align: center;
+            color: #333;
         }
 
-        .rsvp input,
-        .rsvp select {
-            display: block;
-            margin: 12px auto;
-            padding: 12px;
-            width: 260px;
-            border: 1px solid #ddd;
+        .events h2 {
+            font-family: Playfair Display;
+            margin-bottom: 40px;
         }
 
-        .rsvp button {
-            padding: 12px 35px;
-            background: #d4a373;
-            border: none;
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .event-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 16px;
             color: white;
-            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        /* FOOTER */
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-card h3 {
+            font-family: Poppins;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .event-card p {
+            font-size: 16px;
+        }
 
         footer {
             background: #222;
@@ -248,7 +276,8 @@
                 align-items: center;
             }
 
-            .grid {
+            .grid,
+            .events-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -345,25 +374,24 @@
     </section>
 
 
-    <section class="rsvp" id="rsvp">
+    <section class="events" id="events">
 
-        <h2>RSVP</h2>
+        <h2>Wedding Events</h2>
 
-        <form>
-
-            <input type="text" placeholder="Your Name">
-
-            <input type="email" placeholder="Email">
-
-            <select>
-                <option>Will you attend?</option>
-                <option>Yes</option>
-                <option>No</option>
-            </select>
-
-            <button>Send</button>
-
-        </form>
+        <div class="events-grid">
+            <div class="event-card">
+                <h3>Engagement</h3>
+                <p>27 May</p>
+            </div>
+            <div class="event-card">
+                <h3>Wedding Ceremony</h3>
+                <p>28 May</p>
+            </div>
+            <div class="event-card">
+                <h3>Reception</h3>
+                <p>30 May</p>
+            </div>
+        </div>
 
     </section>
 
