@@ -756,9 +756,10 @@
 
         /* COUNTDOWN */
 
-        function updateCountdown() {
-            // Updated to the end of the day on May 28, 2026 to show 72 full days remaining
-            const weddingDate = new Date("2026-05-28T23:59:59").getTime();
+        const wedding = new Date("May 28, 2026 00:00:00").getTime();
+
+        setInterval(() => {
+
             const now = new Date().getTime();
             const diff = weddingDate - now;
 
