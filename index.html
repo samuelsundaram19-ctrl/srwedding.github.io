@@ -20,6 +20,12 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
         body {
             font-family: Poppins;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552") center/cover fixed no-repeat;
@@ -97,8 +103,8 @@
         }
 
         .hero p {
-            font-size: 22px;
-            margin: 60px 0 30px 0; /* Further increased gap for a cinematic feel */
+            font-size: 20px;
+            margin: 30px 0 15px 0;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 300;
@@ -108,6 +114,10 @@
             font-size: 36px;
             margin-top: 20px;
             font-family: Playfair Display;
+        }
+
+        section {
+            contain: content;
         }
 
         /* SECTION TITLES STYLE */
@@ -139,7 +149,7 @@
             display: flex;
             justify-content: center;
             gap: 60px;
-            padding: 100px 10%;
+            padding: 60px 10%;
             text-align: center;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
@@ -177,7 +187,7 @@
         .story {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 100px 15%;
+            padding: 60px 15%;
             text-align: center;
             color: white;
         }
@@ -191,7 +201,7 @@
 
         .countdown {
             text-align: center;
-            padding: 100px 20px;
+            padding: 60px 20px;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             color: white;
@@ -226,10 +236,14 @@
             opacity: 0.8;
         }
 
+        .time-unit span {
+            transition: all 0.3s ease;
+        }
+
         /* GALLERY (Section 5 - Odd) */
 
         .gallery {
-            padding: 100px 10%;
+            padding: 60px 10%;
             text-align: center;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
@@ -259,7 +273,8 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            width: 260px; /* Reduced size */
+            width: 260px;
+            /* Reduced size */
         }
 
         /* Post-it / Stamp effect */
@@ -274,10 +289,21 @@
         }
 
         /* Unique rotations for organic feel */
-        .card:nth-child(4n+1) { transform: rotate(-3deg); }
-        .card:nth-child(4n+2) { transform: rotate(2deg); }
-        .card:nth-child(4n+3) { transform: rotate(-1.5deg); }
-        .card:nth-child(4n+4) { transform: rotate(4deg); }
+        .card:nth-child(4n+1) {
+            transform: rotate(-3deg);
+        }
+
+        .card:nth-child(4n+2) {
+            transform: rotate(2deg);
+        }
+
+        .card:nth-child(4n+3) {
+            transform: rotate(-1.5deg);
+        }
+
+        .card:nth-child(4n+4) {
+            transform: rotate(4deg);
+        }
 
         .card:hover {
             transform: scale(1.1) rotate(0) translateY(-15px) !important;
@@ -287,7 +313,8 @@
 
         .grid img {
             width: 100%;
-            aspect-ratio: 4 / 4; /* Standard square polaroid look */
+            aspect-ratio: 4 / 4;
+            /* Standard square polaroid look */
             object-fit: cover;
             border-radius: 1px;
             border: 1px solid #eee;
@@ -298,7 +325,7 @@
         .events {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            padding: 100px 10%;
+            padding: 60px 10%;
             text-align: center;
             color: white;
         }
@@ -393,13 +420,14 @@
         /* REVEAL ON SCROLL */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translate3d(0, 20px, 0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            will-change: transform, opacity;
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
         }
 
         /* MOBILE */
@@ -408,32 +436,82 @@
 
         /* 1. LARGE DESKTOPS (1400px+) */
         @media (min-width: 1400px) {
-            .hero h1 { font-size: 100px; }
-            .hero h1 .and { font-size: 50px; }
-            section h2 { font-size: 42px; }
+            .hero h1 {
+                font-size: 100px;
+            }
+
+            .hero h1 .and {
+                font-size: 50px;
+            }
+
+            section h2 {
+                font-size: 42px;
+            }
         }
 
         /* 2. LAPTOPS & DESKTOPS (1024px - 1399px) */
         @media (max-width: 1399px) {
-            .hero h1 { font-size: 80px; }
-            .couple, .story, .countdown, .gallery, .events { padding: 80px 10%; }
+            .hero h1 {
+                font-size: 80px;
+            }
+
+            .couple,
+            .story,
+            .countdown,
+            .gallery,
+            .events {
+                padding: 80px 10%;
+            }
         }
 
         /* 3. TABLETS (769px - 1024px) */
         @media (max-width: 1024px) {
-            .hero h1 { font-size: 64px; }
-            .hero h1 .and { font-size: 32px; margin: 0 15px; }
-            section h2 { font-size: 28px; }
-            .couple, .story, .countdown, .gallery, .events { padding: 80px 5%; }
-            
-            .couple { gap: 30px; }
-            .person { width: 200px; }
-            
-            .events-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            
-            #timer { gap: 15px; }
-            .time-unit { min-width: 80px; padding: 15px; }
-            .time-unit span { font-size: 28px; }
+            .hero h1 {
+                font-size: 64px;
+            }
+
+            .hero h1 .and {
+                font-size: 32px;
+                margin: 0 15px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .couple,
+            .story,
+            .countdown,
+            .gallery,
+            .events {
+                padding: 80px 5%;
+            }
+
+            .couple {
+                gap: 30px;
+            }
+
+            .person {
+                width: 200px;
+            }
+
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            #timer {
+                gap: 15px;
+            }
+
+            .time-unit {
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            .time-unit span {
+                font-size: 28px;
+            }
         }
 
         /* 4. MOBILE (Up to 768px) */
@@ -474,44 +552,76 @@
                 gap: 30px;
             }
 
-            .story, .countdown, .gallery, .events {
+            .story,
+            .countdown,
+            .gallery,
+            .events {
                 padding: 60px 5%;
             }
 
-            section h2 { font-size: 24px; letter-spacing: 1px; }
-            section h2::before, section h2::after { width: 20px; margin: 0 10px; }
+            section h2 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            section h2::before,
+            section h2::after {
+                width: 20px;
+                margin: 0 10px;
+            }
 
             .events-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .grid { gap: 25px; }
-            .card { width: 45%; min-width: 160px; padding: 8px 8px 30px 8px; }
-
-            #timer { 
-                flex-wrap: wrap; 
-                gap: 10px; 
+            .grid {
+                gap: 25px;
             }
-            .time-unit { 
-                min-width: 80px; 
-                flex: 1 1 40%; 
+
+            .card {
+                width: 45%;
+                min-width: 160px;
+                padding: 8px 8px 30px 8px;
+            }
+
+            #timer {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .time-unit {
+                min-width: 80px;
+                flex: 1 1 40%;
                 padding: 12px;
             }
 
             nav ul {
                 display: none;
             }
-            
-            .logo { font-size: 20px; }
+
+            .logo {
+                font-size: 20px;
+            }
         }
 
         /* 5. SMALL MOBILE (Up to 480px) */
         @media (max-width: 480px) {
-            .hero h1 { font-size: 42px; }
-            .card { width: 90%; }
-            .time-unit { flex: 1 1 42%; }
-            section h2 { font-size: 20px; }
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .time-unit {
+                flex: 1 1 42%;
+            }
+
+            section h2 {
+                font-size: 20px;
+            }
         }
     </style>
 
@@ -603,7 +713,7 @@
             <div class="card"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"></div>
             <div class="card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"></div>
             <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></div>
-            <div class="card"><img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde"></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc"></div>
 
         </div>
 
@@ -646,24 +756,40 @@
 
         /* COUNTDOWN */
 
-        const wedding = new Date("May 28, 2026 00:00:00").getTime();
-
-        setInterval(() => {
-
+        function updateCountdown() {
+            // Updated to the end of the day on May 28, 2026 to show 72 full days remaining
+            const weddingDate = new Date("2026-05-28T23:59:59").getTime();
             const now = new Date().getTime();
-            const diff = wedding - now;
+            const diff = weddingDate - now;
+
+            if (diff <= 0) {
+                const timerContainer = document.getElementById("timer");
+                if (timerContainer) {
+                    timerContainer.innerHTML = "<div class='time-unit' style='min-width: 100%; border: 2px solid #fff;'><span>The Big Day is Here!</span></div>";
+                }
+                return;
+            }
 
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
 
-        }, 1000);
+            if (daysEl) daysEl.innerText = days;
+            if (hoursEl) hoursEl.innerText = hours;
+            if (minutesEl) minutesEl.innerText = minutes;
+            if (secondsEl) secondsEl.innerText = seconds;
+        }
+
+        // Run immediately to avoid showing 0s
+        updateCountdown();
+        // Update every second
+        setInterval(updateCountdown, 1000);
 
 
         /* FLOWER ANIMATION */
@@ -693,18 +819,18 @@
         /* REVEAL ON SCROLL */
 
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+            const reveals = document.querySelectorAll(".reveal:not(.active)");
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add("active");
                 }
-            }
+            });
         }
 
-        window.addEventListener("scroll", reveal);
+        window.addEventListener("scroll", reveal, { passive: true });
         // Run once on load
         reveal();
 
