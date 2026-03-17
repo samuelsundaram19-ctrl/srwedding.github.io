@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Samuel & Ranjani & ABI Wedding</title>
+    <title>Samuel & Ranjani Wedding</title>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap"
@@ -91,29 +91,13 @@
             animation: fade 2s ease;
         }
 
-        .hero h1 span {
-            display: inline-block;
-        }
-
-        .hero h1 .and {
-            font-size: 40px;
-            font-style: italic;
-            margin: 0 20px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         .hero p {
-            font-size: 20px;
-            margin: 30px 0 15px 0;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 300;
+            font-size: 22px;
+            margin: 10px 0;
         }
 
         .hero h2 {
-            font-size: 36px;
-            margin-top: 20px;
-            font-family: Playfair Display;
+            font-size: 30px;
         }
 
         section {
@@ -417,18 +401,7 @@
 
         /* MOBILE */
 
-        /* REVEAL ON SCROLL */
-        .reveal {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            will-change: transform, opacity;
-        }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-        }
 
         /* MOBILE */
 
@@ -525,22 +498,11 @@
             }
 
             .hero h1 {
-                font-size: 48px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .hero h1 .and {
-                margin: 5px 0;
-                font-size: 28px;
+                font-size: 40px;
             }
 
             .hero p {
-                margin: 40px 0 20px 0;
-                font-size: 16px;
-                letter-spacing: 2px;
+                font-size: 18px;
             }
 
             .hero h2 {
@@ -646,11 +608,7 @@
 
         <div>
 
-            <h1>
-                <span>Samuel</span>
-                <span class="and">&</span>
-                <span>Ranjani</span>
-            </h1>
+            <h1>Samuel & Ranjani</h1>
             <p>We Are Getting Married</p>
             <h2>28 May 2026</h2>
 
@@ -659,7 +617,7 @@
     </section>
 
 
-    <section class="couple reveal" id="couple">
+    <section class="couple" id="couple">
 
         <div class="person">
             <img src="assets/Ranjani.png">
@@ -676,7 +634,7 @@
     </section>
 
 
-    <section class="story reveal" id="story">
+    <section class="story" id="story">
 
         <h2>Our Love Story</h2>
 
@@ -688,7 +646,7 @@
     </section>
 
 
-    <section class="countdown reveal">
+    <section class="countdown">
 
         <h2>Wedding Countdown</h2>
 
@@ -702,7 +660,7 @@
     </section>
 
 
-    <section class="gallery reveal" id="gallery">
+    <section class="gallery" id="gallery">
 
         <h2>Our Memories</h2>
 
@@ -720,7 +678,7 @@
     </section>
 
 
-    <section class="events reveal" id="events">
+    <section class="events" id="events">
 
         <h2>Wedding Events</h2>
 
@@ -756,10 +714,9 @@
 
         /* COUNTDOWN */
 
-        const wedding = new Date("May 28, 2026 00:00:00").getTime();
-
-        setInterval(() => {
-
+        function updateCountdown() {
+            // Updated to the end of the day on May 28, 2026 to show 72 full days remaining
+            const weddingDate = new Date("2026-05-28T23:59:59").getTime();
             const now = new Date().getTime();
             const diff = weddingDate - now;
 
@@ -817,23 +774,7 @@
 
         setInterval(createFlower, 400);
 
-        /* REVEAL ON SCROLL */
 
-        function reveal() {
-            const reveals = document.querySelectorAll(".reveal:not(.active)");
-            const windowHeight = window.innerHeight;
-            
-            reveals.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
-                    el.classList.add("active");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", reveal, { passive: true });
-        // Run once on load
-        reveal();
 
     </script>
 
