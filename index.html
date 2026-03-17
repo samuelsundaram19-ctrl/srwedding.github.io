@@ -487,11 +487,25 @@
             }
         }
 
+        .mobile-name {
+            display: none;
+        }
+
         /* 4. MOBILE (Up to 768px) */
         @media (max-width: 768px) {
+            .desktop-name {
+                display: none;
+            }
+
+            .mobile-name {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
             .hero {
-                padding: 80px 15px;
-                min-height: 100vh;
+                padding: 40px 15px;
+                min-height: 80vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -501,8 +515,18 @@
                 font-size: 40px;
             }
 
+            .hero h1 span {
+                display: block;
+            }
+
+            .hero h1 span:nth-child(2) {
+                font-size: 0.7em;
+                margin: 5px 0;
+            }
+
             .hero p {
                 font-size: 18px;
+                margin: 10px 0 5px 0;
             }
 
             .hero h2 {
@@ -570,7 +594,7 @@
         /* 5. SMALL MOBILE (Up to 480px) */
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 42px;
+                font-size: 36px;
             }
 
             .card {
@@ -608,7 +632,14 @@
 
         <div>
 
-            <h1>Samuel & Ranjani</h1>
+            <h1>
+                <span class="desktop-name">Samuel & Ranjani</span>
+                <span class="mobile-name">
+                    <span>Samyuel</span>
+                    <span>&</span>
+                    <span>Ranjani</span>
+                </span>
+            </h1>
             <p>We Are Getting Married</p>
             <h2>28 May 2026</h2>
 
